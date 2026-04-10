@@ -1,0 +1,17 @@
+# ビルドされた実行ファイル
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+/student-golf-entry
+
+# macOS特有のファイル
+.DS_Store
+
+# Goのモジュール関連
+vendor/
+
+# エディタやIDEの設定ファイル
+.vscode/
+.idea/

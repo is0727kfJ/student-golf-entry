@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: golf_entry
+      TZ: Asia/Tokyo
+    ports:
+      - "5432:5432"
+    volumes:
+      # 起動時に db/init.sql を読み込んで自動的にテーブルを作成させる設定
+      - ./db:/docker-entrypoint-initdb.d
+      # コンテナを落としてもデータが消えないように永続化
+      - db-data:/var/lib/postgresql/data
+
+volumes:
+  db-data:
